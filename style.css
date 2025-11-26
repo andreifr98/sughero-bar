@@ -78,6 +78,7 @@ nav a {
     color: var(--color-text);
     transition: color 0.3s;
     font-weight: 500;
+    font-size: 14px;
 }
 
 nav a:hover {
@@ -92,9 +93,11 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #2a1810 0%, #1a1a1a 100%),
-                url('https://images.unsplash.com/photo-1514432324607-2e467ad35370?w=1200&h=600&fit=crop') center/cover;
-    background-blend-mode: overlay;
+    background: linear-gradient(135deg, #2a1810 0%, #1a1a1a 100%);
+    background-image: url('https://images.unsplash.com/photo-1514432324607-2e467ad35370?w=1200&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .hero-overlay {
@@ -103,7 +106,7 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(15, 15, 15, 0.5);
+    background: rgba(15, 15, 15, 0.55);
     z-index: 1;
 }
 
@@ -158,59 +161,90 @@ nav a:hover {
     font-size: 18px;
 }
 
-/* SERVIZI SECTION */
-.servizi {
+/* CATEGORIA SECTIONS */
+.sezione-categoria {
     padding: var(--spacing-xl) var(--spacing-md);
     background: var(--color-bg-darker);
     border-top: 1px solid var(--color-border);
 }
 
-.servizi h2 {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: var(--spacing-xl);
-    color: var(--color-primary);
-    letter-spacing: 1px;
+.sezione-categoria.alt {
+    background: var(--color-bg-dark);
 }
 
-.servizi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.servizio-card {
+.categoria-card {
+    max-width: 900px;
+    margin: 0 auto;
     background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, rgba(139, 111, 71, 0.02) 100%);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius);
-    text-align: center;
-    box-shadow: var(--shadow-sm);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
     transition: all 0.3s;
 }
 
-.servizio-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(212, 165, 116, 0.15);
+.categoria-card:hover {
     border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(212, 165, 116, 0.15);
 }
 
-.servizio-icon {
-    font-size: 48px;
-    margin-bottom: var(--spacing-md);
-    display: block;
+.categoria-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
 }
 
-.servizio-card h3 {
+.categoria-header h2 {
+    font-size: 36px;
     color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-    font-size: 20px;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 1px;
 }
 
-.servizio-card p {
+.sottotitolo {
     color: var(--color-text-light);
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.categoria-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.lista-offerte {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+.lista-offerte li {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: rgba(212, 165, 116, 0.08);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 4px;
+    color: var(--color-text);
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.lista-offerte li:hover {
+    background: rgba(212, 165, 116, 0.15);
+    transform: translateX(8px);
+}
+
+.orario-apertura {
+    text-align: center;
+    color: var(--color-primary-light);
+    font-weight: 600;
+    padding: var(--spacing-lg);
+    background: rgba(212, 165, 116, 0.1);
+    border-radius: var(--radius);
+}
+
+.categoria-content .btn {
+    align-self: center;
 }
 
 /* ORARI SECTION */
@@ -343,7 +377,7 @@ nav a:hover {
         font-size: 16px;
     }
 
-    .servizi h2,
+    .categoria-header h2,
     .orari h2,
     .contatti h2 {
         font-size: 28px;
@@ -352,6 +386,7 @@ nav a:hover {
     nav {
         flex-direction: column;
         gap: var(--spacing-md);
+        font-size: 12px;
     }
 
     .navbar .container {
@@ -361,6 +396,14 @@ nav a:hover {
 
     .hero {
         height: 400px;
+    }
+
+    .categoria-card {
+        padding: var(--spacing-lg);
+    }
+
+    .lista-offerte {
+        grid-template-columns: 1fr;
     }
 }
 
