@@ -1,28 +1,3 @@
-// FORM SUBMISSION
-document.getElementById('formPrenota').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const nome = document.getElementById('nome').value;
-    const telefono = document.getElementById('telefono').value;
-    const data = document.getElementById('data').value;
-    const ora = document.getElementById('ora').value;
-    const giocatori = document.getElementById('giocatori').value;
-
-    // Crea messaggio WhatsApp
-    const messaggio = `Ciao! Vorrei prenotare il campo padel:\n\nNome: ${nome}\nTelefono: ${telefono}\nData: ${data}\nOra: ${ora}\nGiocatori: ${giocatori}`;
-
-    // URL WhatsApp (sostituisci con numero vero)
-    const numeroWhatsApp = '3282443953';
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(messaggio)}`;
-
-    // Apri WhatsApp
-    window.open(urlWhatsApp, '_blank');
-
-    // Reset form
-    this.reset();
-    alert('Reindirizzamento a WhatsApp in corso...');
-});
-
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -32,4 +7,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             target.scrollIntoView({ behavior: 'smooth' });
         }
     });
+});
+
+// Navbar background on scroll
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.borderBottomColor = 'rgba(212, 165, 116, 0.2)';
+        navbar.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.4)';
+    } else {
+        navbar.style.borderBottomColor = 'var(--color-border)';
+        navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.3)';
+    }
 });
